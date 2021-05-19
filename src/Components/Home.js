@@ -7,22 +7,26 @@ function Home() {
     const handleChange = (event) => {
         setSearchValue(event.target.value)
     }
-    const searchCompanies = async () => {
-                console.log(searchValue);
-        const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchValue}&apikey=D8TXVUDAZHH9GDB1`);
+    const searchCompanies = async (event) => {
+        console.log(searchValue);
+        setSearchValue(event.target.value)
+        const response = await fetch(`https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${event.target.value}&apikey=D8TXVUDAZHH9GDB1`);
         const data = await response.json();
         setCompanies(data.bestMatches)
         console.log(response);
         console.log(data);
     }
+    console.log(companies);
     return (
         <div >
         <div>
-            <input type="text" onChange={handleChange} value={searchValue} />
-            <button onClick={() => searchCompanies()}>Search...</button>
+            <input type="text" onChange={searchCompanies} value={searchValue} placeholder="Search Companies..."/>
+            {/* <button onClick={() => searchCompanies()}>Search...</button> */}
         </div>
         <div>
-                {companies.map(comp)}
+                {companies.length !== 0 && companies.map(company => (
+                    <p>{company["2. name"]}</p>
+                ))}
         </div>
             </div>
     )

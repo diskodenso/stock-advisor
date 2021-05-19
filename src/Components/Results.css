@@ -1,0 +1,12 @@
+p {
+  background-color: lightgrey;
+  color: black;
+  font-size: small;
+  border: whitesmoke;
+  border-style: solid;
+  border-radius: 5px;
+  width: 160px;
+  border: 2px solid white;
+  margin: auto;
+  text-align: center;
+}
