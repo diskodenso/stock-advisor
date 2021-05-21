@@ -10,12 +10,13 @@ function App() {
       <div className="App">
                <Switch>
           <Route exact path="/">
-           < Home />
+            < Home />
+            
           {/* </Route>
           {/* <Route path="/About">
             <About /> */}
           </Route>
-          <Route exact path="/detail.2. name" children={<Detail />}/>
+          <Route exact path="/detail/:companyName" children={<Detail />}/>
         </Switch>
         </div>
 </Router>

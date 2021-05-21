@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Search from "./Search.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function Home() {
     const [companies, setCompanies] = useState([]);
@@ -23,9 +24,9 @@ function Home() {
             <input type="text" onChange={searchCompanies} value={searchValue} placeholder="Search Companies..."/>
             {/* <button onClick={() => searchCompanies()}>Search...</button> */}
         </div>
-        <div>
+            <div>
                 {companies.length !== 0 && companies.map(company => (
-                    <p>{company["2. name"]}</p>
+                <Link to = {`/detail/${company["2. name"]}`}> {company["2. name"]} </Link>
                 ))}
         </div>
             </div>
