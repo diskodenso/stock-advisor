@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-r
 import React, { useEffect, useState } from 'react'
 
 function Detail(props) {
-    const { companyName } = useParams()
-    const [ company, setCompany ] = useState({})
+    const { symbol } = useParams()
+    const [ company, setCompany ] = useState(null)
 
     const searchProfile = async () => {
-        const response = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${companyName}&apikey=D8TXVUDAZHH9GDB1`);
+        const response = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=D8TXVUDAZHH9GDB1`);
         const data = await response.json();
         setCompany(data);
         console.log(response);
@@ -16,13 +16,14 @@ function Detail(props) {
     useEffect(() => {
         searchProfile();
     }, []);
-    console.log(companyName)
+    // console.log(company.Description)
     return (
         <div>
-
-            <p>{companyName}</p>
-            {/* <p>{company.description}</p> */}
-            <p>Details Page</p>
+            {company !== null && (<div>
+                <p>{company.Name}</p>
+                <p> Stock Market Symbol: {company.Symbol} </p>
+                <p>{company.Description}</p>
+            </div> )}
         </div>
     )
 }
