@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { companiesContext } from "../Context/detailContext.js";
 
 function Home() {
  const [companies, setCompanies] = useState([]);

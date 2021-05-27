@@ -4,11 +4,11 @@ import React, {createContext, useState} from 'react'
 // 2. initialize context
 
 const initCompaniesContext = {
-   companies: []  
-}
+   Companies: []
+};
 // 3. create context
 
-export const CompaniesContext = createContext(initCompaniesContext)
+export const CompaniesContext = createContext(initCompaniesContext);
 
 // 4. make provider => value / children
 
@@ -16,7 +16,7 @@ export const CompaniesContextProvider = ({ children }) => {
    const [companies, setCompanies] = useState(
       initCompaniesContext.companies);
    return (
-      <CompaniesContextProvider value={companies, setCompanies}>
+      <CompaniesContextProvider value={{ companies, setCompanies }}>
          {children}
       </CompaniesContextProvider>
    )

@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
-import React, { useEffect, useState } from 'react'
-// import { companiesContext } from "../Context/detailContext.js";
+import React, { useEffect, useState, useContext, createContext } from 'react'
+import { CompaniesContext } from "../Context/detailContext.js";
 
 function Detail(props) {
     const { symbol } = useParams()
-    const [ company, setCompany ] = useState(null)
-
+    const [company, setCompany] = useState(null)
+   const {Companies} = useContext(CompaniesContext)
     const searchProfile = async () => {
         const response = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=D8TXVUDAZHH9GDB1`);
         const data = await response.json();
