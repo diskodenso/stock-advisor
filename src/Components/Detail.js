@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Link, useParams } from "react-router-dom";
 import React, { useEffect, useState } from 'react'
+// import { companiesContext } from "../Context/detailContext.js";
 
 function Detail(props) {
     const { symbol } = useParams()

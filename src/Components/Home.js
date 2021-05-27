@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { companiesContext } from "../Context/detailContext.js";
 
 function Home() {
-    const [companies, setCompanies] = useState([]);
+ const [companies, setCompanies] = useState([]);
     const [searchValue, setSearchValue] = useState("");
     const handleChange = (event) => {
         setSearchValue(event.target.value)
