@@ -5,13 +5,18 @@ import { CompaniesContext } from "../Context/detailContext.js";
 function Detail(props) {
     const { symbol } = useParams()
     const [company, setCompany] = useState(null)
-   const {Companies} = useContext(CompaniesContext)
+ const { companies } = useContext(CompaniesContext)
     const searchProfile = async () => {
-        const response = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=D8TXVUDAZHH9GDB1`);
+        try {
+            const response = await fetch(`https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=D8TXVUDAZHH9GDB1`);
         const data = await response.json();
         setCompany(data);
         console.log(response);
         console.log(data);
+        } catch(err) {
+            console.log(err)
+        }
+        
     }
 
     useEffect(() => {
