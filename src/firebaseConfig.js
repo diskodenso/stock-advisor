@@ -3,7 +3,7 @@ import "firebase/auth";
 import "firebase/firestore";
 
 var firebaseConfig = {
-    apiKey: process.env.REACT_APP_APIKEY,
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "stock-advisor-c63af.firebaseapp.com",
     projectId: "stock-advisor-c63af",
     storageBucket: "stock-advisor-c63af.appspot.com",

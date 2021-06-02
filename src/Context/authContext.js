@@ -2,7 +2,7 @@ import React, {createContext, useState} from 'react'
 
 // initialize the context
 
-initAuthContext = {
+const initAuthContext = {
     user: null,
     isLoggedIn: false,
 }
@@ -14,8 +14,8 @@ export const AuthContext = createContext(initAuthContext);
 // 4. make provider => value / children
 
 export const AuthContextProvider = ({ children }) => {
-    const { user, setUser } = useState(initAuthContext.user);
-    const { isLoggedIn, setIsLoggedIn } = useState(initAuthContext.isLoggedIn);
+    const [ user, setUser ] = useState(initAuthContext.user);
+    const [ isLoggedIn, setIsLoggedIn ] = useState(initAuthContext.isLoggedIn);
     return (
         <AuthContext.Provider
             value={{
