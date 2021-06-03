@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useHistory } from "react";
 import { AuthContext } from "../Context/authContext";
 import firebase from "../firebaseConfig.js";
 
@@ -10,19 +10,20 @@ const Login = () => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
-// {} = object - watch javascript basics spike 
-// [] = array
-// () = not a javascript type - define a function
-    
-// normal login function
+
+  // {} = object - watch javascript basics spike 
+  // [] = array
+  // () = not a javascript type - define a function
+
+  // normal login function
   const login = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(state.email, state.password)
       .then((userCredential) => {
         // Signed in
-          const user = userCredential.user;
-          console.log(userCredential);
+        const user = userCredential.user;
+        console.log(userCredential);
         console.log(`user in login`, user);
         setUser(user);
         setIsLoggedIn(true);
@@ -39,6 +40,8 @@ const Login = () => {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     login();
+
+
   };
 
   return (
@@ -67,5 +70,6 @@ const Login = () => {
     </form>
   );
 };
+
 
 export default Login;

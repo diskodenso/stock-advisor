@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../context/authContext";
+import { AuthContext } from "../Context/authContext";
 import firebase from "../firebaseConfig.js";
 
 const Register = () => {
@@ -16,7 +16,6 @@ const Register = () => {
       .auth()
       .createUserWithEmailAndPassword(state.email, state.password)
       .then((userCredential) => {
-        
         // Signed in
         var user = userCredential.user;
         console.log(user);
@@ -54,6 +53,9 @@ const Register = () => {
         console.log(errorMessage);
         setUser(null);
         setIsLoggedIn(false);
+        // ..
+      });
+  };
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
