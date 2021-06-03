@@ -8,6 +8,7 @@ import About from "./Components/About.js";
 import { CompaniesContextProvider } from "./Context/detailContext.js";
 import Login from "./Views/Login.js";
 import { AuthContextProvider } from "./Context/authContext.js";
+import Register from "./Views/Register.js";
 
 function App() {
   return (
@@ -26,7 +27,10 @@ function App() {
             < About />
             </Route>
             <Route exact path="/Login">
-              < Login />
+                < Login />
+                </Route>
+                <Route exact path="/Register">
+                  < Register />
               </Route>
             <Route exact path="/detail/:symbol" children={<Detail />} />
             </CompaniesContextProvider>
