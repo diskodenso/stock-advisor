@@ -4,11 +4,11 @@ import "firebase/firestore";
 
 var firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: "stock-advisor-c63af.firebaseapp.com",
-    projectId: "stock-advisor-c63af",
-    storageBucket: "stock-advisor-c63af.appspot.com",
-    messagingSenderId: "456188025138",
-    appId: "1:456188025138:web:0be9d9d2d548d70ac5df2b"
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
   };
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
